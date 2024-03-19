@@ -25,11 +25,11 @@ class EmployeePolicy
             case '1':
                 return true;
             case '2':
-                return    false;
-            case '3':
-                return    false;
-            default:
                 return false;
+            case '3':
+                return false;
+            default:
+                return true;
         }
     }
 }

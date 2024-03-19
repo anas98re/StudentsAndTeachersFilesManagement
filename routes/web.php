@@ -12,6 +12,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Models\employee;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,8 +64,7 @@ Route::get('/ADEdit/{id}', [AdController::class, 'ADEdit'])->name('ADEdit');
 Route::post('updateAD/{id}', [AdController::class, 'updateAD'])->name('updateAD');
 
 Route::get('getAllEmployee', [EmployeeController::class, 'getAllEmployee'])
-->name('getAllEmployee')
-->middleware(['auth','can:viewAllEmoloyees,App\models\emplloyee']);
+->name('getAllEmployee')->can('viewAllEmoloyees',employee::class);
 Route::post('storeEmployee', [EmployeeController::class, 'storeEmployee'])->name('storeEmployee');
 Route::post('deleteEmployee', [EmployeeController::class, 'deleteEmployee'])->name('deleteEmployee');
 
